@@ -1,5 +1,4 @@
 .message {
-
 }
 
 .imageAndText {
@@ -7,23 +6,37 @@
 }
 
 .imageAndText img {
-
+    width: 48px;
+    height: 48px;
 }
 
 .text {
-
+    width: 414px;
+    height: 60px;
+    background-image: url("../Rectangle3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 1px;
+    padding-left: 25px;
 }
 
 .text:after {
-
 }
 
 .name {
+    width: 35px;
+    height: 20px;
+    margin-top: 7px;
 
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
 }
 
-.messageText {
-
+.messageText pre {
 }
 
 .time {
