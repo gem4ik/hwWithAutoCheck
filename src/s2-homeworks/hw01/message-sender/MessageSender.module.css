@@ -1,14 +1,18 @@
 .sendForm {
+    display: flex;
 }
 
 .textarea {
     resize: none;
-    min-width: 976px;
     min-height: 40px;
-    background: url("../Rectangle4.png") no-repeat 50% 40%;
-    padding-top: 11px;
-    padding-bottom: 10px;
-    padding-left: 24px;
+    background-color: #DDEEFF;
+    border-radius: 20px;
+    width: 976px;
+    padding-top: 10px;
+}
+.textarea::placeholder{
+    padding-top: 10px;
+    padding-left: 20px;
 }
 
 .button {
@@ -16,7 +20,6 @@
     height: 40px;
     background: #0066CC;
     border-radius: 20px;
-
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
