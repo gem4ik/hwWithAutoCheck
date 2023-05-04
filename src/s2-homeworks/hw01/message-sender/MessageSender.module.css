@@ -7,11 +7,10 @@
     min-height: 40px;
     background-color: #DDEEFF;
     border-radius: 20px;
-    width: 976px;
+    width: 100%;
     padding-top: 10px;
 }
 .textarea::placeholder{
-    padding-top: 10px;
     padding-left: 20px;
 }
 
