@@ -36,25 +36,24 @@ const defaultAffairs: Array<AffairType> = [
 
 // pure helper functions
 export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): Array<AffairType> => {
-    if (filter === "low") return affairs.filter((a)=>{a.priority !== 'low'})
-    if (filter === "middle") return affairs.filter((a)=>{a.priority !== 'middle'})
-    if (filter === "high")return affairs.filter((a)=>{a.priority !== 'high'})
-    console.log(affairs.filter( (a)=>{a._id>3} ))
+    if (filter === "low") return affairs.filter(a=>a.priority === 'low')
+    if (filter === "middle") return affairs.filter(a=>a.priority === 'middle')
+    if (filter === "high")return affairs.filter(a=>a.priority === 'high')
     return affairs // need to fix
 }
-export const deleteAffair = (affairs: any, _id: any): any => { // need to fix any
-    // need to fix
-    // отбрасывай при помощи метода filter лишних affairs
-    return affairs
+export const deleteAffair = (affairs: Array<AffairType>, _id:number): any => { // need to fix any
+    let filteredAffairs = affairs.filter(a=>a._id !== _id)
+
 }
 
 function HW2() {
-    const [affairs, setAffairs] = useState<any>(defaultAffairs) // need to fix any
+    const [affairs, setAffairs] = useState<Array<AffairType>>(defaultAffairs) // need to fix any
     const [filter, setFilter] = useState<FilterType>('all')
 
     const filteredAffairs = filterAffairs(affairs, filter)
     const deleteAffairCallback = (_id: any) => { // need to fix any
-        // need to fix
+        setAffairs(_id)
+        deleteAffair(affairs, _id)
         // это просто функция стрелочник-она засетает, то что сделает deleteAffair
         // setAffairs(вызываю функцию(передаю аргументы))
     }
