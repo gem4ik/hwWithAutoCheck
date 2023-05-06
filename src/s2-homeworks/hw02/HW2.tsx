@@ -6,7 +6,7 @@ export type AffairPriorityType = "low" | "high" | "middle" //
 export type AffairType = {
     _id: number
     name: string
-    priority: AffairPriorityType
+    priority: FilterType
 }
 export type FilterType = 'all' | AffairPriorityType
 
@@ -19,6 +19,7 @@ const defaultAffairs: Array<AffairType> = [
 ]
 
 export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): Array<AffairType> => {
+    debugger
     if (filter === "low") return affairs.filter(a=>a.priority === 'low')
     if (filter === "middle") return affairs.filter(a=>a.priority === 'middle')
     if (filter === "high") return affairs.filter(a=>a.priority === 'high')

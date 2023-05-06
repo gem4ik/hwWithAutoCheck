@@ -36,7 +36,6 @@ function Affairs(props: AffairsPropsType) {
             deleteAffairCallback={props.deleteAffairCallback}
         />
     ))
-
     return (
         <div>
             <div className={s.buttonContainer}>
