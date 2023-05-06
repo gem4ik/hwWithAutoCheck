@@ -21,7 +21,7 @@ const defaultAffairs: Array<AffairType> = [
 export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): Array<AffairType> => {
     if (filter === "low") return affairs.filter(a=>a.priority === 'low')
     if (filter === "middle") return affairs.filter(a=>a.priority === 'middle')
-    if (filter === "high")return affairs.filter(a=>a.priority === 'high')
+    if (filter === "high") return affairs.filter(a=>a.priority === 'high')
     return affairs
 }
 export const deleteAffair = (affairs: Array<AffairType>, _id:number): Array<AffairType> => {
