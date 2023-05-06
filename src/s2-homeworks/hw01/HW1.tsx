@@ -48,6 +48,7 @@ const HW1 = () => {
     return (
         <div id={'hw1'}>
             <div className={s2.hwTitle}>Hometask №1</div>
+            <hr/>
             <div className={s2.hw}>
                 {/*проверка отображения (не менять)*/}
                 <div className={s2.display}>
@@ -58,6 +59,7 @@ const HW1 = () => {
                 {/*для автоматической проверки дз (не менять)*/}
                 <MessageSender M={Message} />
             </div>
+            <hr/>
         </div>
     )
 }
