@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react'
+import React, {useState} from 'react'
 import Affairs from './affairs/Affairs'
 import s2 from '../../s1-main/App.module.css'
 
@@ -41,9 +41,8 @@ export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): A
     if (filter === "high")return affairs.filter(a=>a.priority === 'high')
     return affairs // need to fix
 }
-export const deleteAffair = (affairs: Array<AffairType>, _id:number): any => {
-    let newState = affairs.filter((a)=>a._id !== _id)
-    console.log(newState)
+export const deleteAffair = (affairs: Array<AffairType>, _id:number): Array<AffairType> => {
+    return affairs.filter((a)=>a._id !== _id)
 }
 
 function HW2() {
@@ -53,10 +52,8 @@ function HW2() {
     const filteredAffairs = filterAffairs(affairs, filter)
 
     const deleteAffairCallback = (_id: number) => {
-       setAffairs(deleteAffair(affairs, _id))
-        console.log(setAffairs)
-        // это просто функция стрелочник-она засетает, то что сделает deleteAffair
-        // setAffairs(вызываю функцию(передаю аргументы))
+        let newState = deleteAffair(affairs, _id)
+        setAffairs(newState)
     }
 
     return (
