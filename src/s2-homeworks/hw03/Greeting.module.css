@@ -10,10 +10,10 @@
 .input {
 }
 
-.input:focus {
+.errorInput {
 }
 
-.errorInput {
+.input:focus {
 }
 
 .button {
