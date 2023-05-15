@@ -1,13 +1,21 @@
 .button {
+height: 30px;
+    width: 132px;
+    border-radius: 5px;
 }
 
 .disabled {
+    background-color: #0059b3;
+    opacity: 0.5;
 }
 
 .secondary {
+    color: #0059b3;
+    border-color: #0059b3;
 }
 
 .default {
+    background-color: #0059b3;
 }
 
 .red {
