@@ -6,8 +6,6 @@ import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import User from './User'
 
 /*
-* 1 - дописать типы и логику (сортировка по имени, фильтрация по совершеннолетию) homeWorkReducer, проверить тестом
-* 2 - дописать компоненту User
 * 3 - сделать стили в соответствии с дизайном
 * */
 
@@ -39,7 +37,6 @@ const HW8 = () => {
         ) // в алфавитном порядке a.name > b.name
         setCurrentSort('up')
     }
-
     const sortDown = () => {
         setPeople(
             homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})
@@ -52,7 +49,6 @@ const HW8 = () => {
         ) // совершеннолетние
         setCurrentSort('18')
     }
-
     return (
         <div id={'hw3'}>
             <div className={s2.hwTitle}>Homework #8</div>
