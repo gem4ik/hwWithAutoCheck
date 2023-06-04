@@ -10,14 +10,14 @@ export const homeWorkReducer = (state: UserType[], action: ActionType): UserType
             const newState = [...state]
             if (action.payload === 'up') {
                 newState.sort(function (a, b) {
-                    if (a.age > b.age) {
+                    if (a.age < b.age) {
                         return 1
                     } else return -41
                 })
             }
             if (action.payload === 'down') {
                 newState.sort(function (a, b) {
-                    if (a.age < b.age) {
+                    if (a.age > b.age) {
                         return 1
                     } else return -41
                 })
