@@ -22,12 +22,11 @@ const themes = [
 const HW12 = () => {
 
     const dispatch =  useDispatch()
-    const state = useSelector<AppStoreType, number>(store => store.theme.themeId)
-    console.log(state)
-    const themeId = 1
+    const themeId  = useSelector<AppStoreType, number>(store => store.theme.themeId)
+
 
     const change = (id: number) => {
-        dispatch(changeThemeId(id))
+        dispatch(changeThemeId(Number(id)))
     }
 
     useEffect(() => {
@@ -46,7 +45,7 @@ const HW12 = () => {
                     className={s.select}
                     onChangeOption={change}
                     options={themes}
-                    value={state}
+                    value={themeId}
                 />
             </div>
         </div>
