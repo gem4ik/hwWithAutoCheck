@@ -36,11 +36,32 @@ const HW13 = () => {
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
-                // дописать
-
+                setText(res.data.errorText)
+                setInfo(res.data.info)
             })
             .catch((e) => {
-                // дописать
+                switch (e.response.status) {
+                    case 500:
+                        setImage(error500)
+                        setCode(e.response.status)
+                        setText(e.response.data.errorText)
+                        console.log(e.response.data.errorText)
+                        setInfo(e.response.data.info)
+                        break;
+                    case 400:
+                        setImage(error400)
+                        setCode(e.response.status)
+                        setText(e.response.data.errorText)
+                        console.log(e.response.data.errorText)
+                        setInfo(e.response.data.info)
+                        break;
+                    default:
+                        setImage(errorUnknown)
+                        setCode('Error')
+                        setText(e.message)
+                        setInfo(e.name)
+                        break;
+                }
 
             })
     }
@@ -48,7 +69,6 @@ const HW13 = () => {
     return (
         <div id={'hw13'}>
             <div className={s2.hwTitle}>Homework #13</div>
-
             <div className={s2.hw}>
                 <div className={s.buttonsContainer}>
                     <SuperButton
