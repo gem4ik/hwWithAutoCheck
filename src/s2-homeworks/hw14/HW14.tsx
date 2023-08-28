@@ -15,10 +15,13 @@ import {useSearchParams} from 'react-router-dom'
 
 const getTechs = (find: string) => {
     return axios
-        .get<{ techs: string[] }>(
+        .get<any>(
             'https://samurai.it-incubator.io/api/3.0/homework/test2',
             {params: {find}}
         )
+        .then(res=>{
+            return res.data.techs
+        })
         .catch((e) => {
             alert(e.response?.data?.errorText || e.message)
         })
@@ -26,30 +29,24 @@ const getTechs = (find: string) => {
 
 const HW14 = () => {
     const [find, setFind] = useState('')
-    const [isLoading, setLoading] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
+    const [isLoading, setLoading] = useState(false)
     const [techs, setTechs] = useState<string[]>([])
 
     const sendQuery = (value: string) => {
         setLoading(true)
         getTechs(value)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                setTechs(res)
+            })
+            .finally(()=>{
+                setLoading(false)
             })
     }
 
     const onChangeText = (value: string) => {
         setFind(value)
-        // делает студент
-
-        // добавить/заменить значение в квери урла
-        // setSearchParams(
-
-        //
+        setSearchParams(value)
     }
 
     useEffect(() => {
@@ -75,11 +72,9 @@ const HW14 = () => {
                     onChangeText={onChangeText}
                     onDebouncedChange={sendQuery}
                 />
-
                 <div id={'hw14-loading'} className={s.loading}>
                     {isLoading ? '...ищем' : <br/>}
                 </div>
-
                 {mappedTechs}
             </div>
         </div>
