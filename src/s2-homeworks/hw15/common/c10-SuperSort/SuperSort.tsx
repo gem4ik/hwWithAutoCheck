@@ -13,13 +13,12 @@ export type SuperSortPropsType = {
 }
 
 export const pureChange = (sort: string, down: string, up: string) => {
-    console.log(`sort: ${sort}, down${down}, up${up}`)
-    if (sort === up) {
-        return down
-    } else if (sort === down) {
-        return 'empty'
-    } else {
+    if (sort === down) {
         return up
+    } else if (sort === up) {
+        return ''
+    } else {
+        return down
     }
 }
 
