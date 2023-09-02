@@ -24,7 +24,6 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
     const onChangeSelect = (event: number) => {
         onChange(page, +event)
     }
-    console.log(page, lastPage, itemsCountForPage)
     return (
         <div className={s.pagination}>
             <Pagination
