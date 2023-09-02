@@ -8,7 +8,7 @@ import SuperSort from './common/c10-SuperSort/SuperSort'
 
 /*
 * 1 - дописать SuperPagination
-* 2 - дописать SuperSort
+* 2 - дописать SuperSort//
 * 3 - проверить pureChange тестами
 * 3 - дописать sendQuery, onChangePagination, onChangeSort в HW15
 * 4 - сделать стили в соответствии с дизайном
@@ -51,38 +51,27 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                if (res?.data) {
+                    setTotalCount(res.data.totalCount)
+                    setTechs(res.data.techs)
+                }
             })
+        setLoading(false)
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
-
-        // setPage(
-        // setCount(
-
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        setPage(newPage)
+        setCount(newCount)
+        sendQuery({searchParams, page:newPage, count:newCount})
+        setSearchParams('')
     }
 
     const onChangeSort = (newSort: string) => {
-        // делает студент
-
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
-
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        setSort(newSort)
+        setPage(1)
+        sendQuery({sort, page, count})
+        setSearchParams(newSort)
     }
-
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
         sendQuery({page: params.page, count: params.count})
@@ -95,7 +84,6 @@ const HW15 = () => {
             <div id={'hw15-tech-' + t.id} className={s.tech}>
                 {t.tech}
             </div>
-
             <div id={'hw15-developer-' + t.id} className={s.developer}>
                 {t.developer}
             </div>
@@ -108,14 +96,12 @@ const HW15 = () => {
 
             <div className={s2.hw}>
                 {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
-
                 <SuperPagination
                     page={page}
                     itemsCountForPage={count}
                     totalCount={totalCount}
                     onChange={onChangePagination}
                 />
-
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
                         tech
@@ -127,7 +113,6 @@ const HW15 = () => {
                         <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
                     </div>
                 </div>
-
                 {mappedTechs}
             </div>
         </div>
